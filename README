@@ -8,7 +8,7 @@ index.php*
 
 To Install:
 1. Make sure you have the on{X} app from the Google Play Store.
-2. Create a new rule on the onx.ms website.
+2. Create a new recipe on the onx.ms website.
 3. Copy and paste the contents of onXweather0.1.js into the recipe field.
 4. Rename to "Detailed Weather Alarm"
 5. Click "Save and Send to Device"
