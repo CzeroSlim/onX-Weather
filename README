@@ -1,0 +1,11 @@
+The onX Detailed Weather Alarm notifies the user of the weather forecast of their current location every day at a specified time. It provides a detailed forecast, and when the notification is clicked, the accuweather website is opened showing an in depth forecast for the current location.
+
+Files:
+onXweather0_1.onx.js
+index.php*
+
+*index.php of onxweather.t15.org, the temporary work-around to reverse geocode the location and provide a usable address for accuweather.
+
+Change Log:
+version 0.1 -
+initial release
