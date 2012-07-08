@@ -1,10 +1,18 @@
-The onX Detailed Weather Alarm notifies the user of the weather forecast of their current location every day at a specified time. It provides a detailed forecast, and when the notification is clicked, the accuweather website is opened showing an in depth forecast for the current location.
+The on{X} Detailed Weather Alarm notifies the user of the weather forecast of their current location every day at a specified time. It provides a detailed forecast, and when the notification is clicked, the accuweather website is opened showing an in depth forecast for the current location.
 
 Files:
-onXweather0.1.onx.js
+onXweather0.1.js
 index.php*
 
 *index.php of onxweather.t15.org, the temporary work-around to reverse geocode the location and provide a usable address for accuweather.
+
+To Install:
+1. Make sure you have the on{X} app from the Google Play Store.
+2. Create a new rule on the onx.ms website.
+3. Copy and paste the contents of onXweather0.1.js into the recipe field.
+4. Rename to "Detailed Weather Alarm"
+5. Click "Save and Send to Device"
+6. Enjoy!
 
 Change Log:
 version 0.1 -
