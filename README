@@ -1,4 +1,4 @@
-The on{X} Detailed Weather Alarm notifies the user of the weather forecast of their current location every day at a specified time. It provides a detailed forecast, and when the notification is clicked, the accuweather website is opened showing an in depth forecast for the current location.
+Czero Slim's on{X} Detailed Weather Alarm notifies the user of the weather forecast of their current location every day at a specified time. It provides a detailed forecast, and when the notification is clicked, the accuweather website is opened showing an in depth forecast for the current location.
 
 Files:
 onXweather0.1.js

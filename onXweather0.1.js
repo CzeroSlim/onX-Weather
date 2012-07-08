@@ -1,3 +1,9 @@
+/*
+on{X} Detailed Weather Alarm
+developed by Czero Slim
+https://github.com/CzeroSlim/onX-Weather
+*/
+
 var time = "8:00 AM";
 
 function getLocation(){
