@@ -34,7 +34,7 @@ function onSucess (weather, textStatus, response) {
         coordinates to attain a usable address, then redirects to the corresponding Accuweather mobile site.
         eventually this will all be done client-side, however I couldn't get device.ajax to work properly
         */
-        device.browser.launch('http://onxweather.t15.org?lat='+lat+'&lon='+lon);
+        device.browser.launch('http://onxweather.x10.mx?latlng='+lat+','+lon);
         console.log("Detailed forecast launched");
     };
     var title='Forecast: '+weather.forecasts[0].skyTextDay;
