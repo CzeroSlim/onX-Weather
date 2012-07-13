@@ -1,7 +1,75 @@
 <?php
-$json = json_decode(file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?latlng=".$_GET["lat"] . "," . $_GET["lon"] . "&sensor=false"));
+$debug=false;
+$json = json_decode(file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?latlng=".$_GET["latlng"]."&sensor=false"));
 $results=$json->results;
+/*
 $address=$results[0]->formatted_address;
+if (strpos($address, "-")){
+$add=explode("-", $address);
+$address=$add[1];
+}
+*/
+$done=false;
+$a=count($results);
+for ($i=0;$i<$a;$i++){
+$b=count($results[$i]->address_components);
+for ($j=0;$j<$b;$j++){
+$res=$results[$i]->address_components;
+if ($res[$j]->types[0]=="locality"){
+if (!$done){
+$address=$res[$j]->long_name;
+$done=true;
+}
+}
+}
+}
+$done=false;
+$a=count($results);
+for ($i=0;$i<$a;$i++){
+$b=count($results[$i]->address_components);
+for ($j=0;$j<$b;$j++){
+$res=$results[$i]->address_components;
+if ($res[$j]->types[0]=="administrative_area_level_1"){
+if (!$done){
+$address=$address.", ".$res[$j]->long_name;
+$done=true;
+}
+}
+}
+}
+/*
+$done=false;
+$a=count($results);
+for ($i=0;$i<$a;$i++){
+$b=count($results[$i]->address_components);
+for ($j=0;$j<$b;$j++){
+$res=$results[$i]->address_components;
+if ($res[$j]->types[0]=="postal_code"){
+if (!$done){
+$address=$address." ".$res[$j]->long_name;
+$done=true;
+}
+}
+}
+}
+$done=false;
+$a=count($results);
+for ($i=0;$i<$a;$i++){
+$b=count($results[$i]->address_components);
+for ($j=0;$j<$b;$j++){
+$res=$results[$i]->address_components;
+if ($res[$j]->types[0]=="country"){
+if (!$done){
+$address=$address.", ".$res[$j]->long_name;
+$done=true;
+}
+}
+}
+}
+*/
+if ($debug){
+echo $address;
+}
 function post_request($url, $data, $referer='') {
  
     // Convert the data array into URL Parameters like a=b&foo=bar etc.
@@ -67,8 +135,15 @@ function post_request($url, $data, $referer='') {
 $data=array("FreeTextLocation" => $address);
 $ret=post_request("http://m.accuweather.com/en/search-locations", $data);
 $arr=explode('"', $ret["content"]);
-//echo $arr[1];
+if ($debug){
+echo $arr[1];
+}
+if ($arr[1]==1){
+echo "<h2>Error</h2>Reverse geocoding failed";
+die;
+}
+if (!$debug){
 header("location: http://m.accuweather.com" . $arr[1]);
-
+}
 
 ?>
